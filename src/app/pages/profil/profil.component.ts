@@ -32,7 +32,7 @@ export class ProfilComponent implements OnInit {
   getMovieHistory() {
     this.http
       .get<any[]>(
-        `http://localhost:9992/history/gethistory?email=${this.email}`
+        `https://tfarrej-backend.onrender.com/history/gethistory?email=${this.email}`
       )
       .subscribe(
         async (history) => {
@@ -76,7 +76,7 @@ export class ProfilComponent implements OnInit {
   getMovieDetails(movieId: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.http
-        .get<any>(`http://localhost:9992/movies/idmovie/${movieId}`)
+        .get<any>(`https://tfarrej-backend.onrender.com/movies/idmovie/${movieId}`)
         .subscribe(
           (movieDetails) => {
             resolve(movieDetails);

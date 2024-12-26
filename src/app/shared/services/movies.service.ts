@@ -33,16 +33,16 @@ export class MoviesService {
   });
 
   getMovies() {
-    return this.http.get<any>(`http://localhost:9992/movies`);
+    return this.http.get<any>(`https://tfarrej-backend.onrender.com/movies`);
   }
 
   getTvShows() {
-    return this.http.get(`http://localhost:9992/movies/top_rated`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/top_rated`);
   }
 
   getRatedMovies() {
     return this.http.get(
-      `http://localhost:9992/movies/popular`
+      `https://tfarrej-backend.onrender.com/movies/popular`
       
     );
   }
@@ -51,7 +51,7 @@ export class MoviesService {
     const pageRequests = [];
     for (let page = 1; page <= 5; page++) {
       pageRequests.push(
-        this.http.get(`http://localhost:9992/movies/top_rated`)
+        this.http.get(`https://tfarrej-backend.onrender.com/movies/top_rated`)
       );
     }
   
@@ -145,7 +145,7 @@ export class MoviesService {
   }
 
   getBannerDetail(id: number) {
-    return this.http.get(`http://localhost:9992/movies/idmovie/${id}`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/idmovie/${id}`);
   }
 
   getBannerVideoTv(id: number) {
@@ -161,24 +161,24 @@ export class MoviesService {
   }
 
   getNowPlayingMovies() {
-    return this.http.get(`http://localhost:9992/movies/now_playing`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/now_playing`);
   }
 
   getPopularMovies() {
-    return this.http.get(`http://localhost:9992/movies/popular`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/popular`);
   }
 
   getTopRated() {
-    return this.http.get(`http://localhost:9992/movies/top_rated`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/top_rated`);
   }
 
   getUpcomingMovies() {
-    return this.http.get(`http://localhost:9992/movies/top_rated`);
+    return this.http.get(`https://tfarrej-backend.onrender.com/movies/top_rated`);
   }
 
   // Added Methods
   searchMovies(query: string): Observable<{ results: any[] }> {
-    return this.http.get<any[]>(`http://localhost:9992/movies`, { headers: this.defaultHeaders })
+    return this.http.get<any[]>(`https://tfarrej-backend.onrender.com/movies`, { headers: this.defaultHeaders })
       .pipe(
         map((movies: any[]) => {
           // Filter the movies based on the query

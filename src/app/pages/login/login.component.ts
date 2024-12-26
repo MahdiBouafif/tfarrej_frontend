@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
      // this.router.navigate(['browse']);
   
       /* Send to create user */
-      this.http.post('http://localhost:9992/api/user/create', userPayload).pipe(
+      this.http.post('https://tfarrej-backend.onrender.com/api/user/create', userPayload).pipe(
         catchError(error => {
           // If there is an error (such as 400), attempt to login the user directly
           if (error.status === 400) {
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   
   private loginUser(userPayload: { email: string }) {
     // Send the email to login endpoint
-    this.http.post('http://localhost:9992/api/user/login', userPayload).pipe(
+    this.http.post('https://tfarrej-backend.onrender.com/api/user/login', userPayload).pipe(
       catchError(error => {
         console.error('Error logging in:', error);
         return of(error); // Return an empty observable if there's an error

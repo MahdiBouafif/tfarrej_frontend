@@ -31,7 +31,7 @@ export class PreviewComponent implements OnChanges {
   @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef<HTMLVideoElement>;
 
   //isModalOpen: boolean = false;
-  videofilm: string = 'localhost:4200/assets/movies/video.mp4'; // Replace with actual server video path
+  videofilm: string = 'tfarrej-backend.onrender.com/assets/movies/video.mp4'; // Replace with actual server video path
 
   // Toggle modal
   constructor(private http: HttpClient, private domSanitizer: DomSanitizer) {}
@@ -51,7 +51,7 @@ export class PreviewComponent implements OnChanges {
     console.log(historyData);
 
     // Send the POST request
-    this.http.post('http://localhost:9992/movies/history', historyData).subscribe(
+    this.http.post('https://tfarrej-backend.onrender.com/movies/history', historyData).subscribe(
       (response) => {
         console.log('Movie history saved successfully:', response);
       },
