@@ -1,0 +1,23 @@
+<iframe class="w-full h-full absolute" [src]="videoUrl" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media;"></iframe>
+
+<div class="h-screen bg-white">
+	<div class="h-full pt-[40%] sm:pt-[30%] md:pt-[20%] lg:pt-[15%] px-20 absolute text-white bg-gradient-to-r from-black">
+		<h1>{{title}}</h1>
+		<p class="info inline-block w-100 lg:w-5/12 flex-wrap py-[10%] md:py-[5%] text-white text-[1em] md:text-[1.2em] font-normal leading-[normal] mt-[0.1vw]">{{this.desc}}</p>
+		<div class="flex flex-col sm:flex-row">
+			<button  (click)="openModal()" class="cursor-pointer bg-white text-black w-[50%] sm:w-[auto] mb-3 sm:mb-0 px-6 py-3 sm:py-3 sm:px-8 text-xl rounded-lg hover:bg-opacity-70 transition-[.4s]">
+				<fa-icon [icon]="faPlay" size="lg"></fa-icon> <span class="text-[18px] sm:text-[20px] pl-2 font-medium">Play</span>
+			</button>
+			
+		</div>
+	</div>
+    
+</div>
+
+
+
+<div *ngIf="isModalOpen" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <app-video-player [isModalOpen]="isModalOpen" (modalClosed)="closeModal($event)" [videoUrl]="videoUrl1"></app-video-player>
+  </div>
+  
+  

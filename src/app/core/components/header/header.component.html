@@ -1,0 +1,102 @@
+<header [class.header_change]="headerVariable" class="bg-main dark-nav top-0">
+	<div class="items-center text-[1.2rem] relative transition-[background-color] duration-[0.4s] z-[2] px-[4%] py-0 flex gap-5">
+		<a href="/browse">
+			<img width="120" src="/assets/logo.png" alt="TFarrej logo">
+		</a>
+
+		<ul class="items-center md:flex m-0 p-0 hidden" *ngFor="let item of navList">
+			<li class="text-neutral-200 cursor-pointer text-[0.7rem] md:text-sm font-extralight hover:text-gray-300 transition-[.4s]">
+				<a [routerLink]="['/browse', item.id]" routerLinkActive="router-link-active" >{{item.name}}</a>
+			</li>
+		</ul>
+
+		<div class="md:hidden flex items-center cursor-pointer" (click)="toggleBrowse()">
+			<span [class.browse_change]="browseVariable" class="text-neutral-200 cursor-pointer text-[0.8rem] font-extralight hover:text-gray-300 transition-[.4s] pr-2">Browse</span>
+			<fa-icon [icon]="faCaretDown" size="sm" class="cursor-pointer" *ngIf="!isBrowseOpened"></fa-icon>
+
+			<div class="menu absolute w-[220px] ml-0 p-0 left-10 top-[83px] border-[hsla(0,0%,100%,0.25)] border border-solid" *ngIf="isBrowseOpened">
+				<ul class="items-center md:flex m-0 p-0 pt-2.5 pb-[5px] px-0" *ngFor="let item of navList">
+					<li class="text-neutral-200 cursor-pointer px-2.5 py-[5px] font-extralight hover:underline transition-[.4s]">
+						<a [routerLink]="['/browse', item.id]" routerLinkActive="router-link-active" >{{item.name}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="items-center flex grow h-full justify-end absolute right-[4%] top-0 secondary-navigation">
+			<div class="searchBox" [ngClass]="{'open': isSearchOpen}">
+				<button class="searchTab cursor-pointer" (click)="toggleSearch()">
+				  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z" fill="currentColor"></path>
+				  </svg>
+				</button>
+				<input #searchInput class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="handleInputChange()"  (blur)="handleBlur()">
+				<ul class="suggestion-list" *ngIf="searchResults.length > 0">
+					<li *ngFor="let movie of searchResults | slice:0:4" class="suggestion-item">
+					  <a href="/movie/{{movie.tmdb_id}}" class="movie-link">
+						<div class="movie-info">
+						  <img
+							[src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w92' + movie.poster_path : 'assets/no-img.jpg'"
+							alt="{{ movie.title || movie.original_name }}"
+							class="movie-poster"
+						  />
+						  <span class="movie-title">{{ movie.title || movie.original_name }}</span>
+						</div>
+					  </a>
+					</li>
+				  </ul>
+				  
+			</div>
+			  
+			
+
+			<div class="nav-element cursor-pointer" (click)="toggleMenu()">
+				<div class="menu-toggler h-8 w-8 overflow-hidden">
+					<img class="object-cover rounded h-8 align-middle w-8 mr-2.5" [src]="userImg" alt="" referrerpolicy="no-referrer">
+				</div>
+				<div class="menu absolute w-[220px] text-[13px] ml-0 p-0 right-0 top-[83px] border-[hsla(0,0%,100%,0.25)] border border-solid" *ngIf="isMenuOpened">
+					<ul class="pt-2.5 pb-[5px] px-0 border-b-[hsla(0,0%,100%,0.25)] border-b border-solid">
+						<div class="h-auto flex flex-row px-2.5 py-[5px]">
+							<img class="object-cover rounded h-8 align-middle w-8 mr-2.5 cursor-default" [src]="userImg" alt="Switch Profile" referrerpolicy="no-referrer">
+							<span class="pt-1.5 hover:underline cursor-pointer">
+								<a href="/profil">{{username}}</a></span>
+						</div>
+					</ul>
+					<ul class="pt-2.5 pb-[5px] px-0">
+						
+						<li class="px-2.5 py-[5px] hover:underline cursor-pointer">
+							<fa-icon [icon]="faUser" size="lg"></fa-icon>
+							<a href="/profil" class="pl-[15px]">Account</a>
+						</li>
+						
+					</ul>
+					<ul class="pt-2.5 pb-[5px] px-0">
+						
+						<li class="px-2.5 py-[5px] hover:underline cursor-pointer">
+							<fa-icon [icon]="faInfoCircle" size="lg"></fa-icon>
+							<a href="/about" class="pl-[15px]">About</a>
+						</li>
+						
+					</ul>
+					<ul class="pt-2.5 pb-[5px] px-0">
+						
+						<li class="px-2.5 py-[5px] hover:underline cursor-pointer">
+							<fa-icon [icon]="faEnvelope" size="lg"></fa-icon>
+							<a href="/contactus" class="pl-[15px]">Contact US</a>
+						</li>
+						
+					</ul>
+					<ul class="pt-2.5 pb-[5px] px-0">
+						<li class="px-2.5 py-[10px] hover:underline cursor-pointer text-center border-t-[hsla(0,0%,100%,0.25)] border-t border-solid" (click)="signOut()">Sign out of TFarrej</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="nav-element cursor-pointer" (click)="toggleMenu()">
+				<fa-icon [icon]="faCaretDown" size="sm" [class.hidden]="caretVariable"></fa-icon>
+				<fa-icon [icon]="faCaretUp" size="sm" [class.hidden]="!caretVariable" class="hidden"></fa-icon>
+			</div>
+		</div>
+	</div>
+</header>
+

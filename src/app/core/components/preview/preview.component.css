@@ -1,0 +1,152 @@
+
+.info {
+    text-shadow: 2px 2px 4px rgba(0,0,0,.45);
+}
+
+fa-icon {
+    @media (max-width: 500px) {
+        font-size: smaller;
+    }
+}
+h1 {
+    font-family: 'DM Serif Display', serif; /* TFarrej uses Helvetica-based fonts */
+    font-size: 3rem;
+    font-weight: bold;
+    color: white; /* TFarrej red */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Creates a subtle glow effect */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Ensure the modal overlay covers the entire screen */
+.fixed.inset-0 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Darken background */
+    z-index: 9999; /* Ensure it's above other elements */
+  }
+  
+  /* Modal content styling */
+  .relative.bg-black {
+    position: relative;
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Close button styling */
+  button.absolute {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+
+  /*pol*/
+  /* Styling the modal overlay */
+.fixed.inset-0 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Darken background */
+    z-index: 9999; /* Ensure it's above other elements */
+  }
+  
+  /* Modal content styling */
+  .relative.bg-black {
+    position: relative;
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  /* Close button styling */
+  button.absolute {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  /* Video Player Styling */
+  video {
+    border-radius: 8px; /* Rounded corners for the video player */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures video fits within the modal */
+    background-color: black;
+  }
+  
+  /* Custom control buttons */
+  .custom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .control-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .play-btn:hover, .mute-btn:hover {
+    color: #e50914; /* Highlighted red for play and mute buttons */
+  }
+  
+  .volume-slider {
+    width: 150px;
+    cursor: pointer;
+  }
+  
+  /* Customize the slider for volume */
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #444;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    background: #e50914;
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Ensure the volume control is well aligned */
+  input[type="range"] {
+    vertical-align: middle;
+  }
+  

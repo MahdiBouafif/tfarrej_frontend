@@ -1,0 +1,81 @@
+.about-container {
+    position: relative;
+    height: 100vh;
+    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/81d64f3c-9627-4741-8f74-422bf35f9f1d/web/TN-en-20241104-TRIFECTA-perspective_42931e34-4ad5-4958-a83f-7282ba993c3a_large.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Black background with a slight transparency */
+    z-index: 1;
+  }
+  
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+    padding: 50px 100px; /* Extra padding for left and right space */
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 150px; /* Adjust logo size as needed */
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center; /* Center team members horizontally */
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .team-member {
+    text-align: center;
+    width: 200px;
+  }
+  
+  .team-member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .team-member p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .footer {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 50px;
+  }
+  

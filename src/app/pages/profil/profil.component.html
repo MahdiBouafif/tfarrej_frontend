@@ -1,0 +1,34 @@
+<app-header [userImg]="userImg"></app-header>
+<div class="profil-container">
+  <!-- Profile Header -->
+  <div class="profil-header">
+    <img class="profil-pic" [src]="userImg" alt="Profile Picture" />
+    <div class="profil-details">
+      <h1 class="name">{{ name }}</h1>
+      <p class="email">{{ email }}</p>
+    </div>
+  </div>
+
+  <!-- Watch History -->
+  <div class="history-section">
+    <h2>Historique de visionnage</h2>
+    <div class="history-list">
+      <a  [routerLink]="['/movie', item.id]" class="history-item" *ngFor="let item of getMoviesForCurrentPage()">
+        <img [src]="item.image" alt="{{ item.title }}" class="movie-poster" />
+        <div class="movie-details">
+          <h3 class="movie-title">{{ item.title }}</h3>
+          <p class="watch-date">Vu le : {{ item.date }}</p>
+          <p class="movie-overview">{{ item.overview | slice:0:300 }}...</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <button (click)="changePage(currentPage - 1)" [disabled]="currentPage <= 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="changePage(currentPage + 1)" [disabled]="currentPage >= totalPages">Next</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

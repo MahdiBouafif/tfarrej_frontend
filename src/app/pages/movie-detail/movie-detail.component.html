@@ -1,0 +1,11 @@
+<app-header [userImg]="userImg"></app-header>
+<app-preview  
+    [desc]="source.overview?.length > 100 
+        ? source.overview.slice(0, 450) 
+        : source.overview"  
+    [title]="source.title" 
+    [Video]="videoKey" 
+    [movieIDD]="movieId" 
+    [videoUrl1]="'http://localhost:9992/film/' + (source.local_link.split('/').pop())">
+</app-preview>
+<app-footer></app-footer>

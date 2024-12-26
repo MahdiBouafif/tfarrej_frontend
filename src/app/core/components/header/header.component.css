@@ -1,0 +1,150 @@
+.bg-main {
+	height: 68px;
+	z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.dark-nav {
+	background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+}
+
+.searchTab {
+    background: transparent;
+}
+
+.secondary-navigation .nav-element:not(:last-child) {
+    margin-right: 10px;
+}
+.nav-element {
+	color: #fff;
+}
+
+.header_change {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    background-color: #141414;
+}
+
+.browse_change {
+    color: red;
+    font-size: .9rem;
+}
+
+.menu {
+    background-color: rgba(0,0,0,.8);
+    font-size: 13px;
+}
+.searchBox {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchTab {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-input {
+    display: inline-block;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.2); /* Blended with background */
+    color: #fff; /* White text */
+    outline: none;
+    transition: width 0.4s ease, opacity 0.4s ease, transform 0.4s ease; /* Smooth animation */
+    width: 0;
+    opacity: 0;
+    transform: scale(0.9); /* Slightly shrink when closed */
+}
+
+.searchBox.open .search-input {
+    width: 250px; /* Expanded width */
+    opacity: 1;
+    transform: scale(1); /* Normal size when open */
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly brighter on open */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Subtle placeholder text */
+}
+
+.search-input:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Slight hover effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance hover depth */
+}
+
+.searchTab:hover .search-icon path {
+    fill: rgba(255, 255, 255, 0.8); /* Icon highlights on hover */
+}
+/* Suggestion List Styling */
+.suggestion-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #141414; /* TFarrej-like black background */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle light border for definition */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Softer shadow */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1000;
+    backdrop-filter: blur(4px); /* Optional frosted effect */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth appearance */
+  }
+  
+  .suggestion-list li {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth hover effect */
+    font-size: 14px; /* Modern font size */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 4px; /* Rounded edges for items */
+    display: flex; /* Use Flexbox to align image and title */
+    align-items: center; /* Vertically center items */
+  }
+  
+  .suggestion-list li:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle hover highlight */
+    transform: scale(1.02); /* Slight zoom effect */
+  }
+  
+  .movie-info {
+    display: flex;
+    align-items: center; /* Vertically align the image and text */
+  }
+  
+  .movie-poster {
+    width: 40px; /* Reduced size of the image */
+    height: 60px; /* Adjusted height of the image */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px; /* Space between image and title */
+  }
+  
+  .movie-title {
+    font-size: 14px; /* Title font size */
+  }
+  
+  /* Smooth Appearance Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
