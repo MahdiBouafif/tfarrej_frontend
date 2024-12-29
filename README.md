@@ -28,8 +28,6 @@ Follow the steps below to set up and run the project locally:
 
 - [Node.js](https://nodejs.org/) (v16 or above)
 - [Angular CLI](https://angular.io/cli) (v15 or above)
-- A TMDB API key ([Sign up here](https://www.themoviedb.org/signup))
-- Google API credentials for authentication ([Create here](https://console.cloud.google.com/apis/credentials))
 
 ### Steps
 
@@ -44,15 +42,7 @@ Follow the steps below to set up and run the project locally:
    npm install
    ```
 
-3. **Add Environment Variables**
-   Create a `.env` file in the root of the project and add the following:
-   ```env
-   TMDB_API_KEY=your_tmdb_api_key
-   GOOGLE_CLIENT_ID=your_google_client_id
-   BACKEND_API_URL=https://your-backend-api-url.com
-   ```
-
-4. **Run the Project**
+3. **Run the Project**
    ```bash
    ng serve
    ```
